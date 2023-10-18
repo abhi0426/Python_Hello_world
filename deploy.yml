@@ -1,0 +1,32 @@
+name: Python Deployment Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Adjust this branch name as needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Use the version of Python you need
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Adjust as needed
+
+    - name: Run tests
+      run: python test.py  # Replace with your test command
+
+    - name: Deploy
+      run: |
+        # Add deployment commands here
+        echo "Deploying the 'Hello World' app..."
+     
+
